@@ -16,28 +16,24 @@ class MyLogger(object):
 def my_hook(d):
     if d['status'] == 'finished':
         print('Done downloading, now converting ...')
-re_time = time.localtime()
+ts = time.gmtime()
+re_time = time.strftime("%Y-%m-%d-%H-%M-%S", ts)
+print(re_time)
+
 ydl_opts = {
     'format': 'best',
-    'outtmpl': '%(uploader)s\%(autonumber)s-%(title)s.%(ext)s',
+    'outtmpl': re_time +'_'+'%(uploader)s-%(re_time)s-%(title)s.%(ext)s',
     #'logger': MyLogger(),
     'progress_hooks': [my_hook],
 }
 
 def video_download():
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download(['https://www.youtube.com/watch?v=5aQYWTgxEoI'])
+        ydl.download(['https://www.youtube.com/watch?v=1XDT-APgkfc'])
     #print(result)
 
-def restart():
-    try:
-        video_download()
-    except Exception as e:
-        print(e)
-    finally:
-        print('waiting for restart')
-        time.sleep(5)
-        restart()
 
-restart()
+video_download()
+
+
 
