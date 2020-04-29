@@ -1,0 +1,27 @@
+[INFO  - 2020-04-15T17:27:42.453Z] GhostDriver - Main - running on port 55861
+[INFO  - 2020-04-15T17:27:44.493Z] Session [6acf4590-7f3e-11ea-a5d3-c95209ccf3ac] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-04-15T17:27:44.494Z] Session [6acf4590-7f3e-11ea-a5d3-c95209ccf3ac] - page.customHeaders:  - {}
+[INFO  - 2020-04-15T17:27:44.494Z] Session [6acf4590-7f3e-11ea-a5d3-c95209ccf3ac] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"windows-10-32bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-04-15T17:27:44.494Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 6acf4590-7f3e-11ea-a5d3-c95209ccf3ac
+[ERROR - 2020-04-15T17:27:45.838Z] Session [6acf4590-7f3e-11ea-a5d3-c95209ccf3ac] - page.onError - msg: TypeError: undefined is not a constructor (evaluating 'i.includes("edg")')
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-04-15T17:27:45.839Z] Session [6acf4590-7f3e-11ea-a5d3-c95209ccf3ac] - page.onError - stack:
+  (anonymous function) (https://image.showroom-live.com/showroom-prod/assets/dist/common.bundle.js?t=1586425322:1)
+  n (https://image.showroom-live.com/showroom-prod/assets/dist/common.bundle.js?t=1586425322:1)
+  (anonymous function) (https://image.showroom-live.com/showroom-prod/assets/dist/common.bundle.js?t=1586425322:8)
+  n (https://image.showroom-live.com/showroom-prod/assets/dist/common.bundle.js?t=1586425322:1)
+  (anonymous function) (https://image.showroom-live.com/showroom-prod/assets/dist/common.bundle.js?t=1586425322:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-04-15T17:27:46.175Z] Session [6acf4590-7f3e-11ea-a5d3-c95209ccf3ac] - page.onError - msg: ReferenceError: Can't find variable: SRApp
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-04-15T17:27:46.175Z] Session [6acf4590-7f3e-11ea-a5d3-c95209ccf3ac] - page.onError - stack:
+  (anonymous function) (https://image.showroom-live.com/showroom-prod/assets/dist/room.bundle.js?t=1586425322:230)
+  i (https://image.showroom-live.com/showroom-prod/assets/dist/lib/lib.js?t=1580447433:2)
+  fireWith (https://image.showroom-live.com/showroom-prod/assets/dist/lib/lib.js?t=1580447433:2)
+  ready (https://image.showroom-live.com/showroom-prod/assets/dist/lib/lib.js?t=1580447433:2)
+  J (https://image.showroom-live.com/showroom-prod/assets/dist/lib/lib.js?t=1580447433:2)
+
+  phantomjs://platform/console++.js:263 in error
