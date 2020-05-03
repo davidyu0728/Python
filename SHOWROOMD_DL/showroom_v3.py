@@ -6,6 +6,7 @@ import re
 import os
 import streamlink
 import sys
+import subprocess
 
 class ShowroomDownload:
     def __init__(self, url):
@@ -44,36 +45,44 @@ class ShowroomDownload:
 def isLiveTime(liveDate, liveTime): # time as xx:xx
     #d = datetime.datetime.strptime((liveDate + liveTime) + datetime.timedelta(minutes=-5) , '%Y%m%d%H%M')
     liveTimePlan = datetime.datetime.strptime(liveDate + liveTime, "%Y%m%d%H%M")
-    liveTimeMinus = datetime.datetime.strptime(liveDate + liveTime, "%Y%m%d%H%M") + datetime.timedelta(minutes=-5)
+    liveTimeMinus = datetime.datetime.strptime(liveDate + liveTime, "%Y%m%d%H%M") + datetime.timedelta(minutes=-3)
     timeNow = datetime.datetime.now() # time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    print(timeNow, liveTimeMinus)
     if liveTimePlan > timeNow and timeNow > liveTimeMinus:
-        flag = 0
         print("preparing")
-        return "preparing"
-    if liveTimePlan < timeNow:
-        flag = 0
+        return 0
+    if timeNow > liveTimePlan:
         print("miss")
-        return "miss"
-    else:
+        return 0
+    if timeNow < liveTimeMinus:
         print("waiting")
+        print("まだ: " + str(datetime.datetime.strptime(str(liveTimePlan - timeNow).split(".")[0], "%H:%M:%S")).split(":")[1] + "分")
         time.sleep(60)
         return True
 # argv0:url,argv1:date,argv2:
-url = sys.argv[1]
-liveDate = sys.argv[2]
-liveTime = sys.argv[3]
+print(len(sys.argv))
+if len(sys.argv)  == 2:
+    url = sys.argv[1]
+    flag = 0
+if len(sys.argv) == 4:
+    url = sys.argv[1]
+    liveDate = sys.argv[2]
+    liveTime = sys.argv[3]
+    flag = True
 
-flag = True
-url = "https://www.youtube.com/watch?v=im6M_8uF1t4"
+
 if "youtube" in url:
     urlFlag = "YT"
-if = "showroom" in url:
+if "showroom" in url:
     urlFlag = "SH"
 while flag == True:
-    flag = isLiveTime("20200501", "1407")
-if flag = 0: #trying to download the
+    flag = isLiveTime(liveDate, liveTime)
+    print(flag)
+if flag == 0: #trying to download the
+    print(urlFlag)
     if urlFlag == "YT":
-        subprocess.call(["bash","record_youtube.sh", url, "best", "loop", "1"])
+        subprocess.call(["bash","./record_youtube.sh", url, "best", "loop", "1"])
     if urlFlag == "SH":
+        print("do")
         shdl = ShowroomDownload(url)
-        shdl.livedownload
+        shdl.livedownload()
