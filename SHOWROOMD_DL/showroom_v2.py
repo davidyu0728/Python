@@ -39,14 +39,10 @@ class ShowroomDownload:
                 filename = filename + '_' + datetime.datetime.now().strftime("%Y%m%d%H%M%S") + '.ts'
                 subprocess.call(["streamlink", self.url, 'high', "--hls-segment-timeout", "1", "-o", filename,])
             if not flag:
-                #time.sleep(10)
-                #pass
                 print(name + "record not start")
 if __name__ == '__main__':
-    start = time.clock()
-
-    aina_url ="https://www.showroom-live.com/miyu_miyu_miyu"
-    mizuha_url = "https://www.showroom-live.com/rumi_afilia"
+    aina_url ="https://www.showroom-live.com/digital_idol_15"
+    mizuha_url = "https://www.showroom-live.com/digital_idol_21"
     kawaseuta_url = "https://www.showroom-live.com/kawaseuta"
     moe_url = "https://www.showroom-live.com/digital_idol_20"
     reina_url = "https://www.showroom-live.com/digital_idol_9"
@@ -73,61 +69,22 @@ if __name__ == '__main__':
     p2 = Process(target=mizuha.livedownload)
     p3 = Process(target=kawaseuta.livedownload)
     p4 = Process(target=moe.livedownload)
+    p5 = Process(target=reina.livedownload)
+    p6 = Process(target=ruri.livedownload)
+    p7 = Process(target=kanae.livedownload)
+    p8 = Process(target=urara.livedownload)
+    p9 = Process(target=sally.livedownload)
+    p10 = Process(target=chiharu.livedownload)
+    p11 = Process(target=nagomi.livedownload)
 
     p1.start()
     p2.start()
     p3.start()
     p4.start()
-
-    end = time.clock()
-    print(end-start)
-
-    """
-    aina_url ="https://www.showroom-live.com/digital_idol_15"
-    mizuha_url = "https://www.showroom-live.com/digital_idol_21"
-    kawaseuta_url = "https://www.showroom-live.com/kawaseuta"
-    moe_url = "https://www.showroom-live.com/digital_idol_20"
-    reina_url = "https://www.showroom-live.com/digital_idol_9"
-    ruri_url = "https://www.showroom-live.com/digital_idol_4"
-    kanae_url = "https://www.showroom-live.com/digital_idol_18"
-    urara_url = "https://www.showroom-live.com/digital_idol_19"
-    nagomi_url ="https://www.showroom-live.com/digital_idol_22"
-    sally_url = "https://www.showroom-live.com/digital_idol_11"
-    chiharu_url = "https://www.showroom-live.com/digital_idol_2"
-    pool = Pool(processes = 6)
-    pool.apply(aina.livedownload)
-    pool.apply(mizuha.livedownload)
-    pool.apply(kawaseuta.livedownload)
-    pool.apply(moe.livedownload)
-    pool.apply(reina.livedownload)
-    pool.apply(ruri.livedownload)
-    pool.apply(kanae.livedownload)
-    pool.apply(urara.livedownload)
-    pool.apply(sally.livedownload)
-    pool.apply(chiharu.livedownload)
-    pool.apply(nagomi.livedownload)
-    pool = Pool(processes = 6)
-    pool.apply_async(aina.islivestart)
-    pool.apply_async(mizuha.islivestart)
-    pool.apply_async(kawaseuta.islivestart)
-    pool.apply_async(moe.islivestart)
-    pool.apply_async(reina.islivestart)
-    pool.apply_async(ruri.islivestart)
-    pool.apply_async(kanae.islivestart)
-    pool.apply_async(urara.islivestart)
-    pool.apply_async(sally.islivestart)
-    pool.apply_async(chiharu.islivestart)
-    pool.apply_async(nagomi.islivestart)
-    pool = Pool(processes = 6)
-    pool.apply_async(aina.livedownload)
-    pool.apply_async(mizuha.livedownload)
-    pool.apply_async(kawaseuta.livedownload)
-    pool.apply_async(moe.livedownload)
-    pool.apply_async(reina.livedownload)
-    pool.apply_async(ruri.livedownload)
-    pool.apply_async(kanae.livedownload)
-    pool.apply_async(urara.livedownload)
-    pool.apply_async(sally.livedownload)
-    pool.apply_async(chiharu.livedownload)
-    pool.apply_async(nagomi.livedownload)
-    """
+    p5.start()
+    p6.start()
+    p7.start()
+    p8.start()
+    p9.start()
+    p10.start()
+    p11.start()
